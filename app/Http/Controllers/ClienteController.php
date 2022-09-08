@@ -23,12 +23,13 @@ class ClienteController extends Controller
 
     public function create()
     {
-        //
+        return view('cliente.create');
     }
 
     public function store(Request $request)
     {
-        //
+        $this->clientes->create($request->all());
+        return redirect()->route('clientes.create')->with('success', 'Cliente adicionado com sucesso!');
     }
 
     public function show(Cliente $cliente)
@@ -46,8 +47,12 @@ class ClienteController extends Controller
         //
     }
 
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        //
+        if(!$cliente = $this->clientes->find($id))
+            return redirect()->route('clientes.index');
+
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('destroy', 'Cliente deletado com sucesso');
     }
 }
