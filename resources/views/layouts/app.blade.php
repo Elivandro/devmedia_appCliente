@@ -22,6 +22,44 @@
             @include('includes._menu')
         </header>
         <main class="py-4">
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Atenção!</strong> {{ $error }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+            @if(session()->has('success'))
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Atenção!</strong> {{ session()->get('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if(session()->has('destroy'))
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Atenção!</strong> {{ session()->get('destroy') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>
