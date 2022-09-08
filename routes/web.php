@@ -10,4 +10,4 @@ use App\Http\Controllers\ {
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes');
+Route::resource('/clientes', ClienteController::class);
