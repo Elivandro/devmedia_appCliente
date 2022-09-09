@@ -27,11 +27,11 @@
                                         <td>{{ $cliente->email }}</td>
                                         <td>{{ $cliente->endereco }}</td>
                                         <td>
-                                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="post">
+                                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="post" id="delete-form">
                                                 @method('DELETE')
                                                 @csrf
                                                 <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
-                                                <button class="btn btn-outline-secondary btn-sm">Excluir</button>
+                                                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Você tem certeza de que deseja deletar este registro?')">Excluir</button>
                                             </form>
                                         </td>
                                     </tr>
