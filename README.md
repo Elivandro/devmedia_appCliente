@@ -2,7 +2,7 @@
 
 ## Framework:
 
-- [**Laravel 9**](https://laravel.com/)
+- [**Laravel 9.x**](https://laravel.com/)
 - [**bootstrap 5.2**](https://getbootstrap.com/)
 
 
@@ -23,42 +23,42 @@ curso de laravel 5.2 feito pela plataforma devmedia afim de aperfeiçoar e adqui
 
 Cópie o repositório:
 
-`git clone git@github.com:Elivandro/devmedia_appCliente.git`
+```git clone git@github.com:Elivandro/devmedia_appCliente.git```
 
 Para instalar as dependências:
 
-`composer install`
+```composer install```
 
 renomeie arquivo de variaveis env
 
-`cp .env.example .env`
+```cp .env.example .env```
 
 Gere uma chave para aplicação
 
-`php artisan key:generate`
+```php artisan key:generate```
 
-### arquivo .env
+### configure no arquivo .env
 
-``APP_NAME`` 
+```APP_NAME```
 
 configure o banco de dados
 
-``DB_CONNECTION=
+```
+DB_CONNECTION=
 DB_HOST=
 DB_PORT=
 DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
-``
-
+```
 rode as migrações
 
-``php artisan migrate``
+```php artisan migrate```
 
 coloque alguns dados no banco
 
-``php artisan db:seed``
+```php artisan db:seed```
 
 por fim rode o servidor
 
-``php artisan serve``
+```php artisan serve```
