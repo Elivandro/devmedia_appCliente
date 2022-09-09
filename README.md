@@ -1,2 +1,11 @@
-# devmedia_appCliente
-curso de laravel feito pela plataforma devmedia
+# AppCliente - devmedia
+
+## Curso Laravel
+curso de laravel 5.2 feito pela plataforma devmedia afim de melhorar e expandir novas experiencias 
+
+<hr>
+
+### Framework:
+
+Laravel 
+bootstrap 5.2
