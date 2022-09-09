@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <ol class="breadcrumb m-0 p-0">
                             <li class="breadcrumb-item active">Clientes</li>
-                            <li class="breadcrumb-item"><a href="{{ route('clientes.create') }}">Adcionar</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('clientes.create') }}">Adicionar</a></li>
                         </ol>
                     </div>
                     <div class="card-body">

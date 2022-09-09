@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <ol class="breadcrumb m-0 p-0">
                             <li class="breadcrumb-item" aria-current="page"><a href="{{ route('clientes.index') }}">Clientes</a></li>
-                            <li class="breadcrumb-item active">Adcionar</li>
+                            <li class="breadcrumb-item active">Adicionar</li>
                         </ol>
                     </div>
                     <div class="card-body">
