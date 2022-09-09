@@ -37,14 +37,21 @@ class ClienteController extends Controller
         //
     }
 
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        if(!$cliente = $this->clientes->find($id))
+            return redirect()->route('clientes.index')->with('destroy', 'Cliente não encontrado');
+
+        return view('cliente.update', compact('cliente'));
     }
 
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, $id)
     {
-        //
+        if(!$cliente = $this->clientes->find($id))
+            return redirect()->back()->with('destroy', 'Cliente não encontrado');
+
+        $cliente->update($request->all());
+        return redirect()->route('clientes.index')->with('success', 'Cliente editado com sucesso');
     }
 
     public function destroy($id)
