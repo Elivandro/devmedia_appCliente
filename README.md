@@ -31,7 +31,7 @@ Para instalar as dependências:
 
 renomeie arquivo de variaveis env
 
-`.env-exemple para apenas .env`
+`cp .env.example .env`
 
 Gere uma chave para aplicação
 
