@@ -29,18 +29,21 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $this->clientes->create($request->all());
-        return redirect()->route('clientes.create')->with('success', 'Cliente adicionado com sucesso!');
+        return redirect()->route('cliente.create')->with('success', 'Cliente adicionado com sucesso!');
     }
 
-    public function show(Cliente $cliente)
+    public function show($id)
     {
-        //
+        if(!$cliente = $this->clientes->find($id))
+            return redirect()->route('cliente.index')->with('destroy', 'Cliente não encontrado');
+
+        return view('cliente.show', compact('cliente'));
     }
 
     public function edit($id)
     {
         if(!$cliente = $this->clientes->find($id))
-            return redirect()->route('clientes.index')->with('destroy', 'Cliente não encontrado');
+            return redirect()->route('cliente.index')->with('destroy', 'Cliente não encontrado');
 
         return view('cliente.update', compact('cliente'));
     }
@@ -51,15 +54,15 @@ class ClienteController extends Controller
             return redirect()->back()->with('destroy', 'Cliente não encontrado');
 
         $cliente->update($request->all());
-        return redirect()->route('clientes.index')->with('success', 'Cliente editado com sucesso');
+        return redirect()->route('cliente.index')->with('success', 'Cliente editado com sucesso');
     }
 
     public function destroy($id)
     {
         if(!$cliente = $this->clientes->find($id))
-            return redirect()->route('clientes.index');
+            return redirect()->route('cliente.index');
 
         $cliente->delete();
-        return redirect()->route('clientes.index')->with('destroy', 'Cliente deletado com sucesso');
+        return redirect()->route('cliente.index')->with('destroy', 'Cliente deletado com sucesso');
     }
 }
