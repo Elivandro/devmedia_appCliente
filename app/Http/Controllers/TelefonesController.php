@@ -37,12 +37,16 @@ class TelefonesController extends Controller
         $telefone['cliente_id'] = $id;
 
         $this->telefones->create($telefone);
-        return redirect()->route('cliente.show', compact('cliente'))->with('sucess', 'Telefone adicionado com sucesso');
+        return redirect()->route('cliente.show', compact('cliente'))->with('success', 'Telefone adicionado com sucesso');
     }
 
     public function edit($id)
     {
-        //
+        if(!$telefone = $this->telefones->find($id))
+            return redirect()->back()->with('destroy', 'Telefone não encontrado');
+
+        $cliente = $this->clientes->find($telefone->cliente_id);
+        return view('cliente.telefone.update', compact('telefone', 'cliente'))->with('success', 'Telefone editado com sucesso');
     }
 
     public function update(Request $request, $id)
@@ -52,10 +56,6 @@ class TelefonesController extends Controller
 
     public function destroy($id)
     {
-        if(!$telefone = $this->telefones->find($id))
-            return redirect()->back()->with('destroy', 'Telefone não encontrado');
-
-        $telefone->delete();
-        return redirect()->route('cliente.show')->with('destroy', 'Telefone Deletado com sucesso');
+        //
     }
 }
