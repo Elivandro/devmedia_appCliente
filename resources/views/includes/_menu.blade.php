@@ -4,7 +4,7 @@
             {{ config('app.name', 'Laravel') }}
         </a>
         @if(!Auth::guest())
-        <a class="navbar-brand" href="{{ route('clientes.index') }}">
+        <a class="navbar-brand" href="{{ route('cliente.index') }}">
             {{ 'Clientes' }}
         </a>
         @endif
