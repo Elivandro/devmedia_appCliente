@@ -9,7 +9,7 @@
                         <ol class="breadcrumb m-0 p-0">
                             <li class="breadcrumb-item"><a href="{{ route('cliente.index') }}">Clientes</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('cliente.show', $cliente->id) }}">Detalhar</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Adicionar telefone</li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar telefone</li>
                         </ol>
                     </div>
                     <div class="card-body">
