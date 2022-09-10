@@ -1,19 +1,19 @@
 @extends('layouts.app')
-@section('title', 'Adicionar novo cliente')
+@section('title', 'Editar cliente')
 @section('content')
 <section class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item"><a href="{{ route('clientes.index') }}">Clientes</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('clientes.create') }}">Adicionar</a></li>
+                    <div class="card-header d-flex justify-content-between">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('cliente.index') }}">Clientes</a></li>
                             <li class="breadcrumb-item active">Editar</li>
                         </ol>
+                        <a href="{{ route('cliente.create') }}" class="btn btn-primary">Adicionar</a>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('clientes.update', $cliente->id) }}" method="post">
+                        <form action="{{ route('cliente.update', $cliente->id) }}" method="post">
                             @method('PUT')
                             @csrf
                             <div class="form-group mb-2">

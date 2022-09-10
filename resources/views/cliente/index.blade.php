@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item active">Clientes</li>
-                            <li class="breadcrumb-item"><a href="{{ route('clientes.create') }}">Adicionar</a></li>
+                    <div class="card-header d-flex justify-content-between">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><span>Clientes</span></li>
                         </ol>
+                        <a href="{{ route('cliente.create') }}" class="btn btn-primary">Adicionar</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered table-hover">
@@ -23,14 +23,14 @@
                             <tbody>
                                 @foreach($clientes as $cliente)
                                     <tr>
-                                        <td>{{ $cliente->nome }}</td>
+                                        <td><a href="{{ route('cliente.show', $cliente->id) }}" class="text-decoration-none">{{ $cliente->nome }}</a></td>
                                         <td>{{ $cliente->email }}</td>
                                         <td>{{ $cliente->endereco }}</td>
                                         <td>
-                                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="post" id="delete-form">
+                                            <form action="{{ route('cliente.destroy', $cliente->id) }}" method="post" id="delete-form">
                                                 @method('DELETE')
                                                 @csrf
-                                                <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
+                                                <a href="{{ route('cliente.edit', $cliente->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
                                                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Você tem certeza de que deseja deletar este registro?')">Excluir</button>
                                             </form>
                                         </td>

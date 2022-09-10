@@ -7,12 +7,12 @@
                 <div class="card">
                     <div class="card-header">
                         <ol class="breadcrumb m-0 p-0">
-                            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('clientes.index') }}">Clientes</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('cliente.index') }}">Clientes</a></li>
                             <li class="breadcrumb-item active">Adicionar</li>
                         </ol>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('clientes.store') }}" method="post">
+                        <form action="{{ route('cliente.store') }}" method="post">
                             @csrf
                             <div class="form-group mb-2">
                                 <label for="nome">Nome:</label>

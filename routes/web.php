@@ -3,11 +3,14 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ {
-    ClienteController,
     HomeController,
+    ClienteController,
+    TelefonesController,
 };
 
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-Route::resource('/clientes', ClienteController::class);
+
+Route::resource('cliente', ClienteController::class);
+Route::resource('cliente.phones',TelefonesController::class)->shallow();
