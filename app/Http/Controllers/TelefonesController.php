@@ -62,6 +62,12 @@ class TelefonesController extends Controller
 
     public function destroy($id)
     {
-        //
+        if(!$telefone = $this->telefones->find($id))
+            return redirect()->back()->with('destroy', 'Telefone não encontrado');
+
+        $cliente = $this->clientes->find($telefone->cliente_id);
+
+        $telefone->delete();
+        return redirect()->route('cliente.show', compact('cliente'))->with('destroy', 'Telefone Deletado com sucesso');
     }
 }
