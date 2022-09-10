@@ -24,9 +24,4 @@ class Cliente extends Model
     {
         return $this->hasMany(Telefone::class);
     }
-
-    public function addTelefone(Telefone $phone)
-    {
-        $this->telefones()->save($phone);
-    }
 }

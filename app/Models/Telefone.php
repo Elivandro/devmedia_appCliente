@@ -11,7 +11,7 @@ class Telefone extends Model
 
     protected $fillable = [
         'id',
-        'telefones',
+        'telefone',
         'descricao',
         'cliente_id',
         'created_at',
