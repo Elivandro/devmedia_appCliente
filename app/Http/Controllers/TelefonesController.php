@@ -46,12 +46,18 @@ class TelefonesController extends Controller
             return redirect()->back()->with('destroy', 'Telefone não encontrado');
 
         $cliente = $this->clientes->find($telefone->cliente_id);
-        return view('cliente.telefone.update', compact('telefone', 'cliente'))->with('success', 'Telefone editado com sucesso');
+        return view('cliente.telefone.update', compact('telefone', 'cliente'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        if(!$telefone = $this->telefones->find($id))
+            return redirect()->back()->with('destroy', 'Telefone não encontrado');
+
+        $cliente = $this->clientes->find($telefone->cliente_id);
+
+        $telefone->update($request->all());
+        return redirect()->route('cliente.show', compact('cliente'))->with('success', 'Telefone atualizado com sucesso');
     }
 
     public function destroy($id)
