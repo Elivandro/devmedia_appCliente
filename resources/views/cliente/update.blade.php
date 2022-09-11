@@ -20,7 +20,7 @@
                                 <label for="nome">Nome:</label>
                                 <input type="text" name="nome" value="{{ $cliente->nome }}" id="nome" class="form-control {{ $errors->has('nome') ? 'border border-danger' : 'border border-primary' }}" placeholder="Nome do cliente"/>
                                 @if($errors->has('nome'))
-                                <span class="help-block">
+                                <span class="text-danger">
                                     <strong>{{ $errors->first('nome') }}</strong>
                                 </span>
                                 @endif
