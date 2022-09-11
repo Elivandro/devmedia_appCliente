@@ -59,6 +59,12 @@ coloque alguns dados no banco
 
 ```php artisan db:seed```
 
+configurando a dependência do css (vite)
+```npm install```
+
+compilando o arquivo de css (vite)
+```npm run build```
+
 por fim rode o servidor
 
 ```php artisan serve```
