@@ -49,10 +49,10 @@
                             <tbody>
                                 @foreach($cliente->telefones as $telefones)
                                     <tr>
-                                        <td>{{ $telefones->telefone }}</td>
+                                        <td>{{ formatPhoneNumber($telefones->telefone) }}</td>
                                         <td>{{ $telefones->descricao }}</td>
-                                        <td>{{ $telefones->created_at }}</td>
-                                        <td>{{ $telefones->updated_at }}</td>
+                                        <td>{{ formatDateTime($telefones->created_at) }}</td>
+                                        <td>{{ formatDateTime($telefones->updated_at) }}</td>
                                         <td>
                                             <form action="{{ route('phones.destroy', $telefones->id) }}" method="post">
                                                 @method('DELETE')
