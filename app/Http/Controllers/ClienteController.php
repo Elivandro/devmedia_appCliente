@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
-use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
@@ -26,7 +26,7 @@ class ClienteController extends Controller
         return view('cliente.create');
     }
 
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         $this->clientes->create($request->all());
         return redirect()->route('cliente.create')->with('success', 'Cliente adicionado com sucesso!');
@@ -48,7 +48,7 @@ class ClienteController extends Controller
         return view('cliente.update', compact('cliente'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ClienteRequest $request, $id)
     {
         if(!$cliente = $this->clientes->find($id))
             return redirect()->back()->with('destroy', 'Cliente não encontrado');
