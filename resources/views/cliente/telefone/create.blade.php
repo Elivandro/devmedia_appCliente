@@ -17,11 +17,21 @@
                             @csrf
                             <div class="form-group mb-2">
                                 <label for="phone">Telefone:</label>
-                                <input type="text" name="telefone" id="phone" class="form-control" placeholder="Telefone do cliente"/>
+                                <input type="text" name="telefone" id="phone" class="form-control {{ $errors->has('telefone') ? 'border border-danger' : 'border border-primary' }}" placeholder="Telefone do cliente"/>
+                                @if($errors->has('telefone'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('telefone') }}</strong>
+                                </span>
+                                @endif
                             </div>
                             <div class="form-group mb-2">
                                 <label for="description">Descricao:</label>
-                                <input type="text" name="descricao" id="description" class="form-control" placeholder="Descrição do telefone"/>
+                                <input type="text" name="descricao" id="description" class="form-control {{ $errors->has('descricao') ? 'border border-danger' : 'border border-primary' }}" placeholder="Descrição do telefone"/>
+                                @if($errors->has('telefone'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('descricao') }}</strong>
+                                </span>
+                                @endif
                             </div>
                             <button class="btn btn-outline-primary">Adicionar</button>
                         </form>

@@ -18,15 +18,30 @@
                             @csrf
                             <div class="form-group mb-2">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="nome" value="{{ $cliente->nome }}" id="nome" class="form-control" placeholder="Nome do cliente"/>
+                                <input type="text" name="nome" value="{{ $cliente->nome }}" id="nome" class="form-control {{ $errors->has('nome') ? 'border border-danger' : 'border border-primary' }}" placeholder="Nome do cliente"/>
+                                @if($errors->has('nome'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('nome') }}</strong>
+                                </span>
+                                @endif
                             </div>
                             <div class="form-group mb-2">
                                 <label for="email">Email:</label>
-                                <input type="email" name="email" value="{{ $cliente->email }}"  id="email" class="form-control" placeholder="Email do cliente"/>
+                                <input type="email" name="email" value="{{ $cliente->email }}"  id="email" class="form-control {{ $errors->has('email') ? 'border border-danger' : 'border border-primary' }}" placeholder="Email do cliente"/>
+                                @if($errors->has('email'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                                @endif
                             </div>
                             <div class="form-group mb-3">
                                 <label for="endereco">Endereço:</label>
-                                <input type="text" name="endereco" value="{{ $cliente->endereco }}"  id="endereco" class="form-control" placeholder="Endereço do cliente"/>
+                                <input type="text" name="endereco" value="{{ $cliente->endereco }}"  id="endereco" class="form-control {{ $errors->has('encereco') ? 'border border-danger' : 'border border-primary' }}" placeholder="Endereço do cliente"/>
+                                @if($errors->has('endereco'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('endereco') }}</strong>
+                                </span>
+                                @endif
                             </div>
                             <button class="btn btn-outline-primary">Editar</button>
                         </form>
