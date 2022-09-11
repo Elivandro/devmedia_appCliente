@@ -22,6 +22,12 @@ class ClienteRequest extends FormRequest
             'endereco' => 'required|string|max:255'
         ];
 
+        if($this->method('PUT')){
+            $rules['email'] = [
+                'nullable'
+            ];
+        }
+
         return $rules;
     }
 }
